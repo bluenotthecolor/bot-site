@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lana Bot</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+
+  <body>
+    <div class="background"></div>
+
+    <main class="hero">
+      <div class="glow"></div>
+
+      <img src="assets/images/logo.png" alt="Lana Bot" class="logo" />
+
+      <h1>Lana Bot</h1>
+
+      <p>
+        Powerful moderation, utilities and statistics for your Discord
+        community.
+      </p>
+
+      <div class="stats">
+        <span>
+          Serving
+          <strong id="users">—</strong>
+          users across
+          <strong id="servers">—</strong>
+          servers.
+        </span>
+      </div>
+
+      <a
+        href="https://discord.com/oauth2/authorize?client_id=1518226820330291346&permissions=8&scope=bot%20applications.commands"
+        class="invite"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Invite Bot
+      </a>
+
+      <div class="links">
+        <a href="commands.html"> Commands </a>
+
+        <a href="support.html"> Support </a>
+      </div>
+    </main>
+
+    <script>
+      async function loadStats() {
+        try {
+          const response = await fetch("http://localhost:5000/stats");
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch stats");
+          }
+
+          const data = await response.json();
+
+          document.getElementById("users").textContent = Number(
+            data.users,
+          ).toLocaleString();
+
+          document.getElementById("servers").textContent = Number(
+            data.guilds,
+          ).toLocaleString();
+        } catch (error) {
+          console.error("Failed to load bot stats:", error);
+
+          document.getElementById("users").textContent = "—";
+          document.getElementById("servers").textContent = "—";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadStats);
+    </script>
+  </body>
+</html>

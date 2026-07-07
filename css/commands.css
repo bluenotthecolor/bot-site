@@ -1,0 +1,212 @@
+.commands-page {
+  width: min(1100px, 90%);
+  margin: 140px auto;
+}
+
+.commands-header {
+  margin-bottom: 50px;
+}
+
+.commands-header h1 {
+  font-size: 54px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.commands-header p {
+  color: #888;
+  margin-bottom: 25px;
+}
+
+#search {
+  width: 100%;
+  padding: 18px 22px;
+
+  background: #181818;
+  color: white;
+
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+
+  outline: none;
+
+  font-size: 16px;
+}
+
+#search:focus {
+  border-color: #6f7cff;
+}
+
+.command-category {
+  margin-bottom: 55px;
+}
+
+.command-category h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.command-card {
+  background: #181818;
+
+  border: 1px solid #2a2a2a;
+
+  border-radius: 18px;
+
+  padding: 22px;
+
+  margin-bottom: 18px;
+
+  transition: 0.25s;
+}
+
+.command-card:hover {
+  border-color: #6f7cff;
+
+  transform: translateY(-4px);
+}
+
+.command-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+.command-card h3 {
+  color: white;
+}
+
+.command-card p {
+  color: #999;
+
+  margin: 12px 0;
+}
+
+.command-card code {
+  display: inline-block;
+
+  background: #111;
+
+  color: white;
+
+  padding: 8px 12px;
+
+  border-radius: 10px;
+}
+
+.copy {
+  background: #6f7cff;
+
+  border: none;
+
+  color: white;
+
+  padding: 8px 16px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+
+  height: 84px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 80px;
+
+  background: #111214;
+
+  border-bottom: 1px solid #23252b;
+
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: #f4f4f5;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 12px;
+
+  object-fit: cover;
+}
+
+.nav-center {
+  display: flex;
+
+  gap: 42px;
+}
+
+.nav-center a {
+  color: #8f949e;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  padding: 30px 0;
+
+  border-bottom: 2px solid transparent;
+
+  transition: 0.25s;
+}
+
+.nav-center a:hover {
+  color: white;
+}
+
+.nav-center .active {
+  color: white;
+
+  border-color: #8b5cf6;
+}
+
+.support-btn {
+  background: #8b5cf6;
+
+  color: white;
+
+  padding: 12px 22px;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  transition: 0.25s;
+}
+
+.support-btn:hover {
+  background: #7c3aed;
+
+  transform: translateY(-2px);
+}

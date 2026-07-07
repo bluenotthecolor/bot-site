@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="Lana Bot" />
+
+        <span>Lana Bot</span>
+      </a>
+    </div>
+
+    <nav class="nav-center">
+      <a href="index.html">Home</a>
+
+      <a href="commands.html" class="active">Commands</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="https://discord.gg/B4SuQfKBTf" class="support-btn">Support </a>
+    </div>
+  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Commands • Lana Bot</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/commands.css" />
+  </head>
+
+  <body>
+    <div class="commands-page">
+      <div class="commands-header">
+        <h1>Commands</h1>
+
+        <p>Every command available in Lana Bot.</p>
+
+        <input id="search" type="text" placeholder="Search commands..." />
+      </div>
+
+      <div id="commands-container"></div>
+    </div>
+
+    <script type="module" src="js/commands.js"></script>
+  </body>
+</html>
