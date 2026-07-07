@@ -1,0 +1,244 @@
+/* ==========================================
+   HERO
+========================================== */
+
+.support-hero {
+  padding: 110px 0 90px;
+
+  text-align: center;
+
+  position: relative;
+}
+
+.support-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(88, 101, 242, 0.12),
+    transparent 70%
+  );
+
+  top: -350px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+.support-hero .container {
+  position: relative;
+
+  z-index: 2;
+}
+
+.support-hero h1 {
+  margin: 20px 0;
+}
+
+.support-hero p {
+  max-width: 650px;
+
+  margin: 0 auto 40px;
+
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   HELP CARDS
+========================================== */
+
+.help-grid {
+  padding-bottom: 110px;
+}
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+.card {
+  padding: 35px;
+
+  border-radius: 24px;
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+  margin-bottom: 18px;
+
+  font-size: 1.3rem;
+}
+
+.card p {
+  line-height: 1.8;
+}
+
+/* ==========================================
+   FAQ
+========================================== */
+
+.faq {
+  padding-bottom: 120px;
+}
+
+.faq h2 {
+  text-align: center;
+
+  margin-bottom: 50px;
+}
+
+.faq-item {
+  background: white;
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  margin-bottom: 18px;
+
+  overflow: hidden;
+
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.faq-item button {
+  width: 100%;
+
+  background: none;
+
+  border: none;
+
+  text-align: left;
+
+  padding: 24px;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.faq-item p {
+  padding: 0 24px 24px;
+
+  color: var(--text-light);
+}
+
+/* ==========================================
+   CTA
+========================================== */
+
+.support-cta {
+  padding-bottom: 120px;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, #5865f2, #6c63ff);
+
+  border-radius: 30px;
+
+  padding: 60px;
+
+  text-align: center;
+
+  color: white;
+}
+
+.cta-box h2 {
+  color: white;
+
+  margin-bottom: 18px;
+}
+
+.cta-box p {
+  color: rgba(255, 255, 255, 0.85);
+
+  margin-bottom: 35px;
+}
+
+.cta-box .primary-btn {
+  background: white;
+
+  color: #5865f2;
+
+  box-shadow: none;
+}
+
+.cta-box .primary-btn:hover {
+  background: #f8f8f8;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 900px) {
+  .support-hero {
+    padding: 80px 0 60px;
+  }
+
+  .support-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .support-hero p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .hero-buttons .primary-btn,
+  .hero-buttons .secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .card,
+  .help-card {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .cta-box {
+    padding: 35px 24px;
+  }
+
+  .faq-item button {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+}

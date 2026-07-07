@@ -5,6 +5,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 /* ==========================================
+   ROOT
+========================================== */
+
+:root {
+  --primary: #5865f2;
+  --primary-hover: #4752d6;
+
+  --background: #f8fafc;
+  --surface: #ffffff;
+
+  --text: #111827;
+  --text-light: #6b7280;
+
+  --border: #e5e7eb;
+
+  --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.12);
+
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 28px;
+
+  --transition: 0.28s ease;
+}
+
+/* ==========================================
    RESET
 ========================================== */
 
@@ -20,60 +47,110 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background: #0d0f14;
-  color: #f8fafc;
-  min-height: 100vh;
+
+  background: var(--background);
+
+  color: var(--text);
+
   overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================
-   COLORS
+   DEFAULTS
 ========================================== */
 
-:root {
-  --background: #0d0f14;
-  --surface: #171b22;
-  --surface-hover: #1d222c;
+img {
+  display: block;
 
-  --border: #2a303c;
-
-  --primary: #8b5cf6;
-  --primary-hover: #7c3aed;
-
-  --text: #f8fafc;
-  --muted: #9ca3af;
-
-  --radius: 18px;
-
-  --transition: 0.25s ease;
+  max-width: 100%;
 }
-
-/* ==========================================
-   LINKS
-========================================== */
 
 a {
-  color: inherit;
   text-decoration: none;
+
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container {
+  width: min(1180px, 92%);
+
+  margin: auto;
+}
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+section {
+  padding: 110px 0;
 }
 
 /* ==========================================
    BUTTONS
 ========================================== */
 
-.btn {
+.primary-btn {
   display: inline-flex;
 
-  justify-content: center;
   align-items: center;
 
-  padding: 16px 28px;
+  justify-content: center;
 
-  background: var(--surface);
+  gap: 10px;
+
+  padding: 15px 28px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-weight: 700;
+
+  transition: var(--transition);
+
+  box-shadow: 0 12px 30px rgba(88, 101, 242, 0.22);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+
+  background: var(--primary-hover);
+}
+
+.secondary-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 15px 28px;
+
+  border-radius: 14px;
 
   border: 1px solid var(--border);
 
-  border-radius: var(--radius);
+  background: white;
 
   color: var(--text);
 
@@ -82,67 +159,80 @@ a {
   transition: var(--transition);
 }
 
-.btn:hover {
+.secondary-btn:hover {
   transform: translateY(-3px);
 
-  background: var(--surface-hover);
-
-  border-color: var(--primary);
-}
-
-.btn-primary {
-  background: var(--primary);
-
-  border-color: var(--primary);
-}
-
-.btn-primary:hover {
-  background: var(--primary-hover);
-
-  border-color: var(--primary-hover);
+  box-shadow: var(--shadow-md);
 }
 
 /* ==========================================
-   BACKGROUND
+   CARD
 ========================================== */
 
-body::before {
-  content: "";
+.card {
+  background: var(--surface);
 
-  position: fixed;
+  border: 1px solid var(--border);
 
-  inset: 0;
+  border-radius: 22px;
 
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(255, 255, 255, 0.04),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 80% 75%,
-      rgba(255, 255, 255, 0.03),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(139, 92, 246, 0.08),
-      transparent 40%
-    );
+  box-shadow: var(--shadow-sm);
 
-  pointer-events: none;
+  transition: var(--transition);
+}
 
-  z-index: -1;
+.card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: var(--shadow-md);
 }
 
 /* ==========================================
-   SELECTION
+   BADGE
 ========================================== */
 
-::selection {
-  background: var(--primary);
+.badge {
+  display: inline-flex;
 
-  color: white;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 18px;
+
+  border-radius: 999px;
+
+  background: #eef2ff;
+
+  color: var(--primary);
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+}
+
+/* ==========================================
+   TITLES
+========================================== */
+
+h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  letter-spacing: -1px;
+}
+
+p {
+  color: var(--text-light);
+
+  line-height: 1.8;
 }
 
 /* ==========================================
@@ -153,16 +243,72 @@ body::before {
   width: 10px;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
 ::-webkit-scrollbar-thumb {
-  background: #2d3442;
+  background: #d4d4d8;
 
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: #b4b4b8;
+}
+
+/* ==========================================
+   SELECTION
+========================================== */
+
+::selection {
+  background: #5865f2;
+
+  color: white;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 900px) {
+  section {
+    padding: 80px 0;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
 }

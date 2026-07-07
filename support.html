@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Support • Lana Bot</title>
+
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/support.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <script defer src="js/app.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="container navbar">
+        <a href="index.html" class="logo"> Lana Bot </a>
+
+        <nav class="desktop-nav">
+          <a href="index.html">Home</a>
+
+          <a href="commands.html">Commands</a>
+
+          <a class="active" href="support.html">Support</a>
+        </nav>
+
+        <div class="desktop-buttons">
+          <a
+            href="https://github.com/bluenotthecolor"
+            class="secondary-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://discord.com/oauth2/authorize?client_id=1518226820330291346"
+            class="primary-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Invite
+          </a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M4 7H20"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M4 12H20"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M4 17H20"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="mobile-menu" id="mobileMenu">
+      <div class="mobile-header">
+        <h2>Lana Bot</h2>
+
+        <button id="closeBtn">✕</button>
+      </div>
+
+      <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+
+        <a href="commands.html">Commands</a>
+
+        <a class="active" href="support.html">Support</a>
+
+        <a
+          href="https://github.com/bluenotthecolor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </nav>
+
+      <div class="mobile-bottom">
+        <a
+          href="https://discord.com/oauth2/authorize?client_id=1518226820330291346"
+          class="primary-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Invite Bot
+        </a>
+      </div>
+    </aside>
+
+    <main>
+      <section class="support-hero">
+        <div class="container">
+          <span class="badge"> Help Center </span>
+
+          <h1>How can we help?</h1>
+
+          <p>
+            Whether you're setting up Lana Bot for the first time or
+            troubleshooting an issue, you'll find everything you need here.
+          </p>
+
+          <div class="hero-buttons">
+            <a
+              href="https://discord.gg/B4SuQfKBTf"
+              class="primary-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join Support Server
+            </a>
+
+            <a href="commands.html" class="secondary-btn"> Browse Commands </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-grid">
+        <div class="container cards">
+          <a href="#" class="card help-card">
+            <h3>Getting Started</h3>
+
+            <p>Learn how to invite Lana Bot and complete the initial setup.</p>
+
+            <span> Learn More → </span>
+          </a>
+
+          <a href="#" class="card help-card">
+            <h3>Permissions</h3>
+
+            <p>
+              Learn which permissions Lana Bot needs and how to configure them
+              correctly.
+            </p>
+
+            <span> View Guide → </span>
+          </a>
+
+          <a href="#" class="card help-card">
+            <h3>Report a Bug</h3>
+
+            <p>
+              Found an issue? Send us a bug report and we'll investigate it.
+            </p>
+
+            <span> Open Report → </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="faq">
+        <div class="container">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <button>How do I invite Lana Bot?</button>
+
+            <p>Invite Lana Bot to your server using the button below.</p>
+
+            <a
+              href="https://discord.com/oauth2/authorize?client_id=1518226820330291346"
+              class="primary-btn faq-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Invite Lana Bot
+            </a>
+          </div>
+
+          <div class="faq-item">
+            <button>Is Lana Bot free?</button>
+
+            <p>Yes. Lana Bot is currently completely free to use.</p>
+          </div>
+
+          <div class="faq-item">
+            <button>What permissions does Lana Bot need?</button>
+
+            <p>
+              Lana Bot works best with the recommended permissions from the
+              invite page. Administrator is optional but can make setup easier
+              depending on your server.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button>Why aren't some commands working?</button>
+
+            <p>
+              Check that Lana Bot has the required permissions and that its role
+              is placed above the members it needs to manage.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button>How do I report a bug?</button>
+
+            <p>
+              Join our support server and create a bug report. Include
+              screenshots, the command you used, and any error messages if
+              possible.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button>Can I suggest a new feature?</button>
+
+            <p>
+              Absolutely! We'd love to hear your ideas. Join our support server
+              and post your suggestion in the feature request channel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="support-cta">
+        <div class="container">
+          <div class="cta-box">
+            <h2>Still need help?</h2>
+
+            <p>
+              Can't find the answer you're looking for? Join our Discord server
+              and our team will be happy to help.
+            </p>
+
+            <a
+              href="https://discord.gg/B4SuQfKBTf"
+              class="primary-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join Support Server
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2026 Lana Bot. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
