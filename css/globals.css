@@ -312,3 +312,30 @@ img {
     width: 100%;
   }
 }
+
+.highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.highlight::before {
+  content: "";
+
+  position: absolute;
+
+  left: -0.08em;
+  right: -0.08em;
+
+  bottom: 0.12em;
+
+  height: 0.32em;
+
+  background: #c3cbfd;
+
+  z-index: -1;
+
+  border-radius: 4px;
+
+  transform: rotate(-1deg);
+}
