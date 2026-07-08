@@ -242,3 +242,25 @@
     font-size: 0.95rem;
   }
 }
+
+.faq-item {
+  padding: 24px;
+}
+
+.faq-item button {
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.faq-item p {
+  padding: 0;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.faq-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
