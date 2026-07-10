@@ -27,6 +27,7 @@ https://bluenotthecolor.github.io/bot-site/
 ## 🤝 Contributing
 
 Contributions, bug reports, and feature suggestions are always welcome. Feel free to open an issue or submit a pull request.
+If you find any error in the site or the bot itself, let me know kindly, either here or dm me on discord, @bluenotthecolor
 
 ## 📜 License
 
