@@ -5,6 +5,38 @@ const categoryList = document.querySelector(".category-list");
 let commands = [];
 let currentCategory = "all";
 
+// Remove command prefixes
+function cleanCommand(text) {
+  if (!text) return "";
+
+  return text.replace(/^[/!?.]+/, "");
+}
+
+// Format permissions
+function formatPermission(permission) {
+  if (!permission) return "None";
+
+  let perms = permission;
+
+  // Handle JSON string from Supabase
+  if (typeof perms === "string") {
+    try {
+      perms = JSON.parse(perms);
+    } catch {
+      perms = [perms];
+    }
+  }
+
+  // Convert single value to array
+  if (!Array.isArray(perms)) {
+    perms = [perms];
+  }
+
+  return perms
+    .map((p) => p.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase()))
+    .join(", ");
+}
+
 // Load commands from Supabase
 async function loadCommands() {
   const { data, error } = await db
@@ -87,6 +119,7 @@ function renderCommands() {
         No commands found.
       </div>
     `;
+
     return;
   }
 
@@ -95,10 +128,16 @@ function renderCommands() {
 
     card.className = "command-card";
 
+    const commandName = cleanCommand(cmd.name);
+    const usage = cleanCommand(cmd.usage || cmd.name);
+
     card.innerHTML = `
       <div class="command-header">
-        <h3>!${cmd.name}</h3>
-        <span class="command-tag">${cmd.category}</span>
+        <h3>${commandName}</h3>
+
+        <span class="command-tag">
+          ${cmd.category}
+        </span>
       </div>
 
       <p class="command-description">
@@ -108,23 +147,27 @@ function renderCommands() {
       <div class="command-section">
         <span>Usage</span>
 
-        <code>${cmd.usage || "!" + cmd.name}</code>
+        <code>${usage}</code>
       </div>
 
       <div class="command-section">
         <span>Aliases</span>
 
-        <code>${
-          Array.isArray(cmd.aliases)
-            ? cmd.aliases.join(", ")
-            : cmd.aliases || "None"
-        }</code>
+        <code>
+          ${
+            Array.isArray(cmd.aliases)
+              ? cmd.aliases.map(cleanCommand).join(", ")
+              : cleanCommand(cmd.aliases) || "None"
+          }
+        </code>
       </div>
 
       <div class="command-section">
         <span>Permissions</span>
 
-        <code>${cmd.permissions || "None"}</code>
+        <code>
+          ${formatPermission(cmd.permissions)}
+        </code>
       </div>
 
       <button class="primary-btn copy-btn">
@@ -135,7 +178,7 @@ function renderCommands() {
     const copyButton = card.querySelector(".copy-btn");
 
     copyButton.addEventListener("click", async () => {
-      await navigator.clipboard.writeText(cmd.usage || "!" + cmd.name);
+      await navigator.clipboard.writeText(usage);
 
       copyButton.textContent = "Copied!";
 
