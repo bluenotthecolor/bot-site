@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service — Lana Bot</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --primary: #5865f2;
+        --primary-hover: #4752d6;
+        --background: #f8fafc;
+        --surface: #ffffff;
+        --text: #111827;
+        --text-light: #6b7280;
+        --border: #e5e7eb;
+        --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.08);
+        --radius: 18px;
+        --transition: 0.28s ease;
+        --warn-bg: #fffbeb;
+        --warn-text: #b45309;
+        --warn-border: #fde68a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--background);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ::selection {
+        background: #5865f2;
+        color: white;
+      }
+
+      .container {
+        width: min(800px, 92%);
+        margin: auto;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: #eef2ff;
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      /* header */
+      .legal-header {
+        border-bottom: 1px solid var(--border);
+        background: rgba(248, 250, 252, 0.85);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        padding: 18px 0;
+      }
+      .legal-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 800;
+        font-size: 1.05rem;
+        box-shadow: 0 8px 18px rgba(88, 101, 242, 0.28);
+      }
+      .brand-name {
+        font-weight: 800;
+        font-size: 1.02rem;
+        letter-spacing: -0.3px;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text-light);
+        padding: 10px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: white;
+        transition: var(--transition);
+      }
+      .back-link:hover {
+        color: var(--text);
+        box-shadow: var(--shadow-sm);
+        transform: translateY(-2px);
+      }
+
+      /* body */
+      .legal-shell {
+        padding: 60px 0 110px;
+      }
+      .legal-intro {
+        margin-bottom: 30px;
+      }
+      .legal-intro .badge {
+        margin-bottom: 16px;
+      }
+      h1 {
+        font-size: clamp(2rem, 4vw, 2.6rem);
+        letter-spacing: -1px;
+        margin-top: 10px;
+        line-height: 1.1;
+      }
+      .updated {
+        color: var(--text-light);
+        font-size: 0.92rem;
+        margin-top: 10px;
+      }
+
+      .draft-notice {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        background: var(--warn-bg);
+        border: 1px solid var(--warn-border);
+        color: var(--warn-text);
+        border-radius: 14px;
+        padding: 16px 18px;
+        margin-bottom: 28px;
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+      .draft-notice svg {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .draft-notice strong {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 0.9rem;
+      }
+
+      .legal-card {
+        padding: 44px;
+      }
+      .legal-section {
+        padding: 26px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .legal-section:first-child {
+        padding-top: 0;
+      }
+      .legal-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .legal-section h2 {
+        font-size: 1.15rem;
+        letter-spacing: -0.3px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .legal-section h2 .num {
+        color: var(--primary);
+        font-weight: 800;
+      }
+      .legal-section p {
+        color: var(--text-light);
+        line-height: 1.75;
+        font-size: 0.96rem;
+        margin-bottom: 10px;
+      }
+      .legal-section p:last-child {
+        margin-bottom: 0;
+      }
+      .legal-section ul {
+        margin: 12px 0 4px;
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .legal-section li {
+        color: var(--text-light);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        padding-left: 22px;
+        position: relative;
+      }
+      .legal-section li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+      .legal-section li strong {
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .contact-note {
+        margin-top: 34px;
+        padding: 18px 20px;
+        border-radius: 14px;
+        background: #eef2ff;
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* footer (site defaults) */
+      footer {
+        margin-top: 0;
+        padding: 40px 0;
+        border-top: 1px solid #e5e7eb;
+        background: white;
+      }
+      .footer {
+        text-align: center;
+        color: #777;
+      }
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-links a {
+        font-size: 0.86rem;
+        font-weight: 600;
+        color: #777;
+        transition: var(--transition);
+      }
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+      .footer-brand-row {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .footer-brand-row .brand-mark {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
+        border-radius: 8px;
+      }
+      .footer-fine {
+        font-size: 0.82rem;
+      }
+
+      @media (max-width: 640px) {
+        .legal-card {
+          padding: 30px 22px;
+        }
+        .back-link span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="legal-header">
+      <div class="container legal-header-inner">
+        <a href="../index.html" class="brand">
+          <div class="brand-mark">L</div>
+          <span class="brand-name">Lana Bot</span>
+        </a>
+        <a href="../index.html" class="back-link">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span>Back to Lana Bot</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="legal-shell">
+      <div class="container">
+        <div class="legal-intro">
+          <span class="badge">Legal</span>
+          <h1>Terms of Service for Lana Bot</h1>
+          <p class="updated">Last Updated: June 20, 2026</p>
+        </div>
+
+        <div class="card legal-card">
+          <div class="legal-section">
+            <h2><span class="num">1.</span> Acceptance of Terms</h2>
+            <p>
+              By inviting Lana Bot to your Discord server or otherwise using its
+              features, you agree to be bound by these Terms of Service. If you
+              do not agree, do not use Lana Bot.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h2><span class="num">2.</span> Description of Service</h2>
+            <p>
+              Lana Bot provides automated tools and utilities for Discord
+              servers, including but not limited to moderation, custom commands,
+              and webhook messaging. Features may be added, changed, or removed
+              at any time without notice.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h2><span class="num">3.</span> Acceptable Use</h2>
+            <p>When using Lana Bot, you agree not to:</p>
+            <ul>
+              <li>
+                <strong>Abuse the service</strong> — attempt to exploit, spam,
+                or overload the bot's commands or infrastructure.
+              </li>
+              <li>
+                <strong>Violate Discord's rules</strong> — use Lana Bot in any
+                way that breaches Discord's Terms of Service or Community
+                Guidelines.
+              </li>
+              <li>
+                <strong>Use it for illegal activity</strong> — including
+                harassment, fraud, or distribution of harmful content.
+              </li>
+              <li>
+                <strong>Reverse-engineer or resell</strong> the bot's
+                functionality without permission from the development team.
+              </li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <h2>
+              <span class="num">4.</span> Server Administrator Responsibility
+            </h2>
+            <p>
+              Server owners and administrators who add Lana Bot are responsible
+              for configuring its permissions and features appropriately for
+              their community. We are not responsible for moderation decisions,
+              misconfigurations, or consequences arising from how the bot is set
+              up on your server.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h2><span class="num">5.</span> Availability</h2>
+            <p>
+              Lana Bot is provided on an "as is" and "as available" basis. We do
+              not guarantee uninterrupted uptime and are not liable for
+              downtime, data loss, or service interruptions, including those
+              caused by Discord's own API or infrastructure.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h2><span class="num">6.</span> Termination</h2>
+            <p>
+              We reserve the right to restrict or terminate access to Lana Bot,
+              for any server or user, at our discretion — particularly in cases
+              of abuse, violation of these terms, or harm to other users.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h2><span class="num">7.</span> Limitation of Liability</h2>
+            <p>
+              To the fullest extent permitted by law, Lana Bot's developers are
+              not liable for any indirect, incidental, or consequential damages
+              resulting from your use of, or inability to use, the service.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h2><span class="num">8.</span> Changes to these Terms</h2>
+            <p>
+              We may update these Terms of Service from time to time. Continued
+              use of Lana Bot after changes are posted constitutes acceptance of
+              the revised terms. Significant changes will be reflected in the
+              "Last Updated" date above.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h2><span class="num">9.</span> Contact Us</h2>
+            <p>
+              If you have any questions about these Terms of Service, please
+              reach out to the development team through our support server.
+            </p>
+          </div>
+
+          <div class="contact-note">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
+            Questions about these terms? Reach out through our support server.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand-row">
+          <div class="brand-mark">L</div>
+          <span>Lana Bot</span>
+        </div>
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="../commands/index.html">Commands</a>
+          <a href="../webhook/index.html">Webhook Editor</a>
+          <a href="../support/index.html">Support</a>
+          <a href="../privacy/index.html">Privacy</a>
+          <a href="../terms/index.html">Terms</a>
+        </div>
+        <div class="footer-fine">
+          © 2026 Lana Bot. Not affiliated with Discord Inc.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
