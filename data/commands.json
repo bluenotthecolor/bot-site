@@ -1,0 +1,787 @@
+{
+  "categories": [
+    {
+      "name": "General Commands",
+      "icon": "sparkles",
+      "commands": [
+        {
+          "name": "avatar",
+          "description": "Check someone's or your own avatar",
+          "aliases": ["av", "pfp"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "banner",
+          "description": "Check someone's or your own banner",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "userinfo",
+          "description": "User inoformation",
+          "aliases": ["ui"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "serverinfo",
+          "description": "Display server information",
+          "aliases": ["si"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "botinfo",
+          "description": "Bot inoformation",
+          "aliases": ["bi"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "membercount",
+          "description": "Display membercount",
+          "aliases": ["mc"],
+          "permissions": [],
+          "is_group": false
+        }
+      ]
+    },
+    {
+      "name": "Moderation",
+      "icon": "shield",
+      "commands": [
+        {
+          "name": "staffrole",
+          "description": "Manage staff role settings.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": true
+        },
+        {
+          "name": "staffrole add",
+          "description": "Set the staff role for the server.",
+          "aliases": [],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "setlog",
+          "description": "Set the moderation log channel for the server.",
+          "aliases": [],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "setreport",
+          "description": "Set the report channel for the server.",
+          "aliases": [],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "report",
+          "description": "Report a member to the moderators.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "kick",
+          "description": "Kick a member from the server.",
+          "aliases": [],
+          "permissions": ["Kick Members"],
+          "is_group": false
+        },
+        {
+          "name": "ban",
+          "description": "Ban a member from the server.",
+          "aliases": [],
+          "permissions": ["Ban Members"],
+          "is_group": false
+        },
+        {
+          "name": "unban",
+          "description": "Unban a user using their ID.",
+          "aliases": [],
+          "permissions": ["Ban Members"],
+          "is_group": false
+        },
+        {
+          "name": "mute",
+          "description": "Timeout a member for a set duration.",
+          "aliases": [],
+          "permissions": ["Moderate Members"],
+          "is_group": false
+        },
+        {
+          "name": "unmute",
+          "description": "Remove timeout from a member.",
+          "aliases": [],
+          "permissions": ["Moderate Members"],
+          "is_group": false
+        },
+        {
+          "name": "warn",
+          "description": "Warn a member.",
+          "aliases": [],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        },
+        {
+          "name": "warnings",
+          "description": "View warnings for a member.",
+          "aliases": [],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        },
+        {
+          "name": "clearwarns",
+          "description": "Clear all warnings for a member.",
+          "aliases": [],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        },
+        {
+          "name": "clear",
+          "description": "Delete a specified number of messages, or all recent messages from a member (including bots).",
+          "aliases": ["purge", "prune"],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        },
+        {
+          "name": "addrole",
+          "description": "Add a role to a member.",
+          "aliases": [],
+          "permissions": ["Manage Roles"],
+          "is_group": false
+        },
+        {
+          "name": "removerole",
+          "description": "Remove a role from a member.",
+          "aliases": [],
+          "permissions": ["Manage Roles"],
+          "is_group": false
+        },
+        {
+          "name": "shutup",
+          "description": "Timeout a member (shut them up).",
+          "aliases": ["su", "silence", "shutthefuckup", "shush", "stfu"],
+          "permissions": ["Moderate Members"],
+          "is_group": false
+        },
+        {
+          "name": "shutuplist",
+          "description": "List all active shutups.",
+          "aliases": ["stfulist", "sulist"],
+          "permissions": ["Moderate Members"],
+          "is_group": false
+        },
+        {
+          "name": "shutupreset",
+          "description": "Reset shutup for a member or all members.",
+          "aliases": ["sureset", "unshutup", "stfureset"],
+          "permissions": ["Moderate Members"],
+          "is_group": false
+        },
+        {
+          "name": "flagwords",
+          "description": "Manage the server's flagged word list.",
+          "aliases": ["flagword", "bannedwords", "badwords"],
+          "permissions": ["Manage Messages"],
+          "is_group": true
+        },
+        {
+          "name": "flagwords add",
+          "description": "Add a word to the server's flagged word list.",
+          "aliases": [],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        },
+        {
+          "name": "flagwords remove",
+          "description": "Remove a word from the server's flagged word list.",
+          "aliases": ["delete", "del"],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        },
+        {
+          "name": "flagwords list",
+          "description": "List all flagged words for the server.",
+          "aliases": ["show", "all"],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        }
+      ]
+    },
+    {
+      "name": "Utility",
+      "icon": "wrench",
+      "commands": [
+        {
+          "name": "afk",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "snipe",
+          "description": "Snipe a message",
+          "aliases": ["s"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "messages",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "invites",
+          "description": "Shows how many members someone has invited to this server",
+          "aliases": ["inv", "invs"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "leaderboard",
+          "description": "Shows the server leaderboard",
+          "aliases": ["lb", "champ"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "ping",
+          "description": "Bot ping",
+          "aliases": ["p", "check"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "uptime",
+          "description": "Bot uptime.",
+          "aliases": ["up"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "imgurl",
+          "description": "Get the URL of an attached image.",
+          "aliases": ["imagelink", "imageurl"],
+          "permissions": [],
+          "is_group": false
+        }
+      ]
+    },
+    {
+      "name": "Fun",
+      "icon": "smile",
+      "commands": [
+        {
+          "name": "pp",
+          "description": "Check someone's pp size.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "duck",
+          "description": "React with a duck.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "hug",
+          "description": "Hug a member.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "kiss",
+          "description": "Kiss a member.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "pat",
+          "description": "Pat a member.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "slap",
+          "description": "Slap a member.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "cuddle",
+          "description": "Cuddle with a member.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "wink",
+          "description": "Wink at someone.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "blush",
+          "description": "Show that you're blushing.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "cry",
+          "description": "Cry dramatically.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "bite",
+          "description": "Bite someone.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "nut",
+          "description": "Send a random nut GIF.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "ship",
+          "description": "Ship two users and see their compatibility.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "poll",
+          "description": "Create an interactive poll.",
+          "aliases": [],
+          "permissions": ["Manage Messages"],
+          "is_group": false
+        },
+        {
+          "name": "trigger",
+          "description": "Manage server triggers.",
+          "aliases": [],
+          "permissions": ["Administrator"],
+          "is_group": true
+        },
+        {
+          "name": "trigger list",
+          "description": "List all active triggers.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "trigger remove",
+          "description": "Remove a custom trigger.",
+          "aliases": [],
+          "permissions": ["Administrator"],
+          "is_group": false
+        }
+      ]
+    },
+    {
+      "name": "Server Stats",
+      "icon": "server",
+      "commands": [
+        {
+          "name": "server",
+          "description": "Manage or view server info.",
+          "aliases": ["srv", "guild"],
+          "permissions": [],
+          "is_group": true
+        },
+        {
+          "name": "server set",
+          "description": "Set the server's name, icon, or banner.",
+          "aliases": ["update", "edit"],
+          "permissions": ["Manage Guild"],
+          "is_group": true
+        },
+        {
+          "name": "server set name",
+          "description": "Set server name.",
+          "aliases": ["title", "rename"],
+          "permissions": ["Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "server set icon",
+          "description": "Set server icon (attach image).",
+          "aliases": ["ico", "avatar"],
+          "permissions": ["Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "server set banner",
+          "description": "Set server banner (attach image).",
+          "aliases": ["bg", "bnr"],
+          "permissions": ["Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "server get",
+          "description": "View the server's name, icon, or banner.",
+          "aliases": ["show", "view"],
+          "permissions": [],
+          "is_group": true
+        },
+        {
+          "name": "server get name",
+          "description": "Show server name.",
+          "aliases": ["title"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "server get icon",
+          "description": "Show server icon.",
+          "aliases": ["ico", "avatar"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "server get desc",
+          "description": "Show server description.",
+          "aliases": ["description", "about"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "server get banner",
+          "description": "Show server banner.",
+          "aliases": ["bg", "bnr"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "sicon",
+          "description": "Shortcut: show server icon.",
+          "aliases": ["servericon", "gicon"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "gbanner",
+          "description": "Shortcut: show server banner.",
+          "aliases": ["serverbanner", "sbanner"],
+          "permissions": [],
+          "is_group": false
+        }
+      ]
+    },
+    {
+      "name": "Booster Roles",
+      "icon": "crown",
+      "commands": [
+        {
+          "name": "boosterrole",
+          "description": "Shows the full list of booster role commands.",
+          "aliases": ["br", "boostermenu"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boosterbase",
+          "description": "Sets the base role that all custom booster roles will be positioned above.",
+          "aliases": ["brbase", "boosterrolebase"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosterfix",
+          "description": "Repositions all booster roles above the configured base role.",
+          "aliases": ["brfix", "boosterrolefix"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosterpurge",
+          "description": "Removes every member from all booster roles.",
+          "aliases": ["brpurge", "boosterrolepurge"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosterpublic",
+          "description": "Enables or disables public role sharing for the entire server.",
+          "aliases": ["brpublic", "boosterrolepublic"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boostercleanup",
+          "description": "Deletes unused booster roles from users who no longer qualify.",
+          "aliases": ["brcleanup", "boosterrolecleanup"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosterlist",
+          "description": "Displays all custom booster roles in the server.",
+          "aliases": ["brlist", "boosterrolelist"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boostermembers",
+          "description": "Shows all members who currently have a booster role.",
+          "aliases": ["brmembers", "boosterrolemembers"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boosterclaim",
+          "description": "Create or reclaim your custom booster role.",
+          "aliases": ["brclaim", "boosterroleclaim", "boostercreate"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boosterrename",
+          "description": "Rename your custom booster role.",
+          "aliases": ["brname", "boosterrolename"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boostercolor",
+          "description": "Change the color or gradient of your booster role.",
+          "aliases": ["brcolor", "boosterrolecolor"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boostericon",
+          "description": "Set or remove an icon for your booster role.",
+          "aliases": ["bricon", "boosterroleicon"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boosterdelete",
+          "description": "Permanently delete your custom booster role.",
+          "aliases": ["brdelete", "boosterroledelete"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boosterremove",
+          "description": "Remove your booster role from yourself without deleting it.",
+          "aliases": ["brremove", "boosterroleremove"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boostershare",
+          "description": "Share your booster role with another member.",
+          "aliases": ["brshare", "boosterroleshare"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boosterleave",
+          "description": "Leave a booster role that was shared with you.",
+          "aliases": ["brleave", "boosterroleleave"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "boosterwhitelist",
+          "description": "Add or remove a user from the booster role whitelist.",
+          "aliases": ["brwhitelist", "boosterrolewhitelist"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosterwhitelistlist",
+          "description": "View all whitelisted users.",
+          "aliases": ["brwhitelistlist", "boosterrolewhitelistlist"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosteroverride",
+          "description": "Shows the override management menu.",
+          "aliases": ["broverride", "boosterroleoverride"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosteroverrideuser",
+          "description": "Grant or revoke override for a specific user.",
+          "aliases": ["broverrideuser", "boosterroleoverrideuser"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosteroverriderole",
+          "description": "Grant or revoke override for everyone with a specific role.",
+          "aliases": ["broverriderole", "boosterroleoverriderole"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        },
+        {
+          "name": "boosteroverridelist",
+          "description": "View all current overrides.",
+          "aliases": ["broverridelist", "boosterroleoverridelist"],
+          "permissions": ["Administrator"],
+          "is_group": false
+        }
+      ]
+    },
+    {
+      "name": "Webhook Commands",
+      "icon": "webhook",
+      "commands": [
+        {
+          "name": "webhook",
+          "description": "No description provided.",
+          "aliases": ["wh"],
+          "permissions": [],
+          "is_group": true
+        },
+        {
+          "name": "webhook create",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": false
+        },
+        {
+          "name": "webhook clear",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks", "Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "webhook edit",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": false
+        },
+        {
+          "name": "webhook permissions",
+          "description": "No description provided.",
+          "aliases": ["perms"],
+          "permissions": [],
+          "is_group": false
+        },
+        {
+          "name": "webhook say",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": false
+        },
+        {
+          "name": "webhook send",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": false
+        },
+        {
+          "name": "webhook sudo",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": false
+        },
+        {
+          "name": "webhook session",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": true
+        },
+        {
+          "name": "webhook session start",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": false
+        },
+        {
+          "name": "webhook session stop",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Webhooks"],
+          "is_group": false
+        }
+      ]
+    },
+    {
+      "name": "Giveaway Commands",
+      "icon": "gift",
+      "commands": [
+        {
+          "name": "giveaway",
+          "description": "No description provided.",
+          "aliases": ["gw", "gaway"],
+          "permissions": [],
+          "is_group": true
+        },
+        {
+          "name": "giveaway create",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "giveaway end",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "giveaway cancel",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "giveaway reroll",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": ["Manage Guild"],
+          "is_group": false
+        },
+        {
+          "name": "giveaway list",
+          "description": "No description provided.",
+          "aliases": [],
+          "permissions": [],
+          "is_group": false
+        }
+      ]
+    }
+  ]
+}
