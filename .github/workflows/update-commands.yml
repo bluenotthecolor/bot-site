@@ -1,9 +1,9 @@
-name: Update commands.json
+name: Update commands.json on site
 
-# Runs whenever a cog changes on main, regenerates data/commands.json from
-# the current cogs, and commits it if anything changed. This is what makes
-# the commands page "auto-update" - the site is static (GitHub Pages), so
-# this commit-back step is what stands in for a live backend.
+# This lives in the BOT repo (where cogs/ actually is). It checks out the
+# SITE repo alongside it, regenerates data/commands.json there using the
+# current cogs, and pushes that commit to the site repo - since the two
+# repos are separate, a same-repo workflow can't do this on its own.
 on:
   push:
     branches: [main]
@@ -12,29 +12,42 @@ on:
       - "scripts/generate_commands.py"
   workflow_dispatch: {}
 
-permissions:
-  contents: write
-
 jobs:
   regenerate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # 1. Check out this repo (the bot) - gives us cogs/ and the script.
+      - name: Checkout bot repo
+        uses: actions/checkout@v4
+
+      # 2. Check out the site repo into ./site - needs a token with write
+      #    access to that repo, since GITHUB_TOKEN only covers this repo.
+      #    Create a fine-grained PAT scoped to the site repo (Contents:
+      #    Read and write), then add it as a secret in THIS (bot) repo
+      #    named SITE_REPO_TOKEN. Settings -> Secrets and variables ->
+      #    Actions -> New repository secret.
+      - name: Checkout site repo
+        uses: actions/checkout@v4
+        with:
+          repository: bluenotthecolor/bot-site
+          token: ${{ secrets.SITE_REPO_TOKEN }}
+          path: site
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Generate data/commands.json
-        run: python scripts/generate_commands.py cogs data/commands.json
+      - name: Generate data/commands.json into the site checkout
+        run: python scripts/generate_commands.py cogs site/data/commands.json
 
-      - name: Commit if changed
+      - name: Commit and push to the site repo if changed
+        working-directory: site
         run: |
           if ! git diff --quiet -- data/commands.json; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add data/commands.json
-            git commit -m "chore: regenerate commands.json"
+            git commit -m "chore: regenerate commands.json from bot cogs"
             git push
           else
             echo "No command changes detected."
