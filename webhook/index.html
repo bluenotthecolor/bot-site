@@ -15,45 +15,47 @@
    ROOT  (ported from site globals.css, extended for the editor)
 ========================================== */
       :root {
-        --primary: #5865f2;
-        --primary-hover: #4752d6;
+        --primary: #a9765a;
+        --primary-hover: #8f6249;
 
-        --background: #f8fafc;
-        --surface: #ffffff;
+        --background: #f7f0e6;
+        --surface: #fffaf3;
 
-        --text: #111827;
-        --text-light: #6b7280;
+        --text: #3d2f28;
+        --text-light: #8c7c6d;
 
-        --border: #e5e7eb;
+        --border: #ecdfcd;
 
-        --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.04);
-        --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.08);
-        --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.12);
+        --shadow-sm: 0 5px 15px rgba(61, 47, 40, 0.06);
+        --shadow-md: 0 15px 40px rgba(61, 47, 40, 0.1);
+        --shadow-lg: 0 30px 70px rgba(61, 47, 40, 0.16);
 
-        --radius-sm: 12px;
-        --radius: 18px;
-        --radius-lg: 28px;
+        --radius-sm: 14px;
+        --radius: 20px;
+        --radius-lg: 30px;
 
         --transition: 0.28s ease;
 
-        /* editor-only additions, same family */
-        --success: #16a34a;
-        --success-bg: #ecfdf3;
-        --danger: #e0453f;
-        --danger-bg: #fdeeee;
-        --field-bg: #f9fafb;
+        --success: #6f8f57;
+        --success-bg: #eef4e6;
+        --danger: #c1584a;
+        --danger-bg: #fbebe7;
+        --field-bg: #f7efe3;
+        --warn: #a67c3d;
+        --warn-bg: #fbf1e0;
 
-        /* discord preview surface — deliberately its own dark pane, like a "device" inset on the page */
         --discord-bg: #313338;
         --discord-bg-2: #2b2d31;
         --discord-text: #dbdee1;
         --discord-text-muted: #949ba4;
         --discord-link: #00a8fc;
+
+        --dc-btn-primary: #5865f2;
+        --dc-btn-secondary: #4e5058;
+        --dc-btn-success: #248046;
+        --dc-btn-danger: #da373c;
       }
 
-      /* ==========================================
-   RESET
-========================================== */
       * {
         margin: 0;
         padding: 0;
@@ -87,17 +89,11 @@
         font-family: inherit;
       }
 
-      /* ==========================================
-   CONTAINER
-========================================== */
       .container {
         width: min(1180px, 92%);
         margin: auto;
       }
 
-      /* ==========================================
-   BUTTONS (site defaults, reused as-is)
-========================================== */
       .primary-btn {
         display: inline-flex;
         align-items: center;
@@ -110,7 +106,7 @@
         color: white;
         font-weight: 700;
         transition: var(--transition);
-        box-shadow: 0 12px 30px rgba(88, 101, 242, 0.22);
+        box-shadow: 0 12px 30px rgba(169, 118, 90, 0.24);
         font-size: 0.95rem;
       }
       .primary-btn:hover {
@@ -155,7 +151,7 @@
         gap: 8px;
         padding: 8px 18px;
         border-radius: 999px;
-        background: #eef2ff;
+        background: #f2e3d5;
         color: var(--primary);
         font-size: 0.95rem;
         font-weight: 700;
@@ -187,13 +183,10 @@
         background: #b4b4b8;
       }
       ::selection {
-        background: #5865f2;
+        background: #a9765a;
         color: white;
       }
 
-      /* ==========================================
-   TOP BAR
-========================================== */
       .editor-topbar {
         border-bottom: 1px solid var(--border);
         background: rgba(248, 250, 252, 0.85);
@@ -225,7 +218,7 @@
         color: white;
         font-weight: 800;
         font-size: 1.05rem;
-        box-shadow: 0 8px 18px rgba(88, 101, 242, 0.28);
+        box-shadow: 0 8px 18px rgba(169, 118, 90, 0.3);
       }
       .brand-text {
         line-height: 1.15;
@@ -253,7 +246,7 @@
       }
       .url-field:focus-within {
         border-color: var(--primary);
-        box-shadow: 0 0 0 4px rgba(88, 101, 242, 0.12);
+        box-shadow: 0 0 0 4px rgba(169, 118, 90, 0.14);
       }
       .url-field svg {
         flex-shrink: 0;
@@ -329,9 +322,6 @@
         display: none;
       }
 
-      /* ==========================================
-   LAYOUT
-========================================== */
       .editor-shell {
         padding: 36px 0 120px;
       }
@@ -349,9 +339,6 @@
         top: 108px;
       }
 
-      /* ==========================================
-   FOOTER  (ported from site footer.css)
-========================================== */
       footer {
         margin-top: 120px;
         padding: 40px 0;
@@ -412,9 +399,6 @@
         margin-top: 8px;
       }
 
-      /* ==========================================
-   BUILDER PANELS
-========================================== */
       .panel {
         padding: 24px 24px 26px;
         margin-bottom: 18px;
@@ -457,6 +441,9 @@
         grid-template-columns: 1fr 1fr;
         gap: 14px;
       }
+      .field-row.three {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
       .field-label {
         display: flex;
         align-items: center;
@@ -497,7 +484,7 @@
       .select-input:focus {
         border-color: var(--primary);
         background: white;
-        box-shadow: 0 0 0 4px rgba(88, 101, 242, 0.1);
+        box-shadow: 0 0 0 4px rgba(169, 118, 90, 0.12);
       }
       .text-area {
         resize: vertical;
@@ -508,6 +495,14 @@
       .text-input::placeholder,
       .text-area::placeholder {
         color: #9ca3af;
+      }
+      select.select-input {
+        appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 34px;
+        cursor: pointer;
       }
 
       .avatar-row {
@@ -533,9 +528,57 @@
         border: 1px solid var(--border);
       }
 
-      /* ==========================================
-   EMBEDS
-========================================== */
+      .toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .toggle-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--field-bg);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+        cursor: pointer;
+        transition: var(--transition);
+        user-select: none;
+      }
+      .toggle-chip:hover {
+        border-color: var(--primary);
+      }
+      .toggle-chip input {
+        accent-color: var(--primary);
+        width: 15px;
+        height: 15px;
+      }
+
+      .info-banner {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        background: var(--warn-bg);
+        border: 1px solid #fde68a;
+        color: #92400e;
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-size: 0.8rem;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+      .info-banner svg {
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .info-banner b {
+        color: #78350f;
+      }
+
       .embed-list {
         display: flex;
         flex-direction: column;
@@ -703,7 +746,7 @@
       .dashed-btn:hover {
         border-color: var(--primary);
         color: var(--primary);
-        background: #eef2ff;
+        background: #f2e3d5;
       }
       .dashed-btn:disabled {
         opacity: 0.45;
@@ -749,9 +792,292 @@
         background: var(--danger);
       }
 
-      /* ==========================================
-   JSON PANEL
-========================================== */
+      .component-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .component-row {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: visible;
+        background: var(--field-bg);
+      }
+      .component-row-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        border-radius: 16px 16px 0 0;
+      }
+      .component-row-head .title {
+        font-weight: 700;
+        font-size: 0.82rem;
+        flex: 1;
+      }
+      .component-row-head .title span {
+        color: var(--text-light);
+        font-weight: 500;
+      }
+      .component-row-body {
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        border-radius: 0 0 16px 16px;
+        overflow: visible;
+      }
+      .row-empty-hint {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        font-style: italic;
+      }
+
+      .component-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 13px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+      }
+      .component-chip:hover {
+        filter: brightness(0.94);
+        transform: translateY(-1px);
+      }
+      .component-chip.style-primary {
+        background: var(--dc-btn-primary);
+      }
+      .component-chip.style-secondary {
+        background: var(--dc-btn-secondary);
+      }
+      .component-chip.style-success {
+        background: var(--dc-btn-success);
+      }
+      .component-chip.style-danger {
+        background: var(--dc-btn-danger);
+      }
+      .component-chip.style-link {
+        background: var(--dc-btn-secondary);
+      }
+      .component-chip.style-menu {
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid var(--border);
+        width: 100%;
+        justify-content: space-between;
+      }
+      .component-chip .chip-remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.75;
+        border-radius: 5px;
+      }
+      .component-chip .chip-remove:hover {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.15);
+      }
+      .component-chip.style-menu .chip-remove:hover {
+        background: var(--danger-bg);
+        color: var(--danger);
+      }
+
+      .add-component-wrap {
+        position: relative;
+      }
+      .add-component-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 14px;
+        border-radius: 10px;
+        border: 1.5px dashed var(--border);
+        background: transparent;
+        color: var(--text-light);
+        font-size: 0.82rem;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+      .add-component-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: #f2e3d5;
+      }
+      .add-component-btn.active {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: #f2e3d5;
+      }
+      .add-component-menu {
+        position: fixed;
+        z-index: 500;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow-lg);
+        padding: 6px;
+        min-width: 230px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        max-height: min(360px, calc(100vh - 24px));
+        overflow-y: auto;
+      }
+      .add-component-menu-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 9px 11px;
+        border-radius: 9px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--text);
+        transition: var(--transition);
+        cursor: pointer;
+      }
+      .add-component-menu-item:hover:not(.disabled) {
+        background: var(--field-bg);
+      }
+      .add-component-menu-item.disabled {
+        color: #c9bfb2;
+        cursor: not-allowed;
+      }
+      .add-component-menu-item .hint {
+        font-size: 0.68rem;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(61, 47, 40, 0.45);
+        backdrop-filter: blur(2px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+        padding: 24px;
+      }
+      .modal-overlay.show {
+        display: flex;
+      }
+      .modal-panel {
+        background: var(--surface);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        width: min(560px, 100%);
+        max-height: min(82vh, 720px);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 22px;
+        border-bottom: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .modal-head h3 {
+        font-size: 1.05rem;
+        letter-spacing: -0.4px;
+      }
+      .modal-close {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--field-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-light);
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+      .modal-close:hover {
+        color: var(--danger);
+        background: var(--danger-bg);
+      }
+      .modal-body {
+        padding: 20px 22px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .modal-foot {
+        padding: 16px 22px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .modal-foot .primary-btn,
+      .modal-foot .secondary-btn {
+        padding: 11px 22px;
+        font-size: 0.86rem;
+      }
+
+      .option-block {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--field-bg);
+        overflow: hidden;
+      }
+      .option-block-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 13px;
+        cursor: pointer;
+        user-select: none;
+        background: white;
+      }
+      .option-block-head .title {
+        flex: 1;
+        font-weight: 700;
+        font-size: 0.82rem;
+      }
+      .option-block-body {
+        padding: 13px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .option-block.collapsed .option-block-body {
+        display: none;
+      }
+      .option-block.collapsed .embed-chevron {
+        transform: rotate(-90deg);
+      }
+      .emoji-label-row {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 10px;
+        align-items: end;
+      }
+      .default-check-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
       .json-toggle-row {
         display: flex;
         gap: 10px;
@@ -775,9 +1101,6 @@
         border-color: var(--primary);
       }
 
-      /* ==========================================
-   DISCORD PREVIEW
-========================================== */
       .preview-frame {
         border-radius: var(--radius);
         overflow: hidden;
@@ -996,6 +1319,62 @@
         font-size: 0.75rem;
       }
 
+      .dc-action-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        max-width: 460px;
+      }
+      .dc-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 15px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #fff;
+        line-height: 1;
+        border: none;
+      }
+      .dc-btn.style-primary {
+        background: var(--dc-btn-primary);
+      }
+      .dc-btn.style-secondary {
+        background: var(--dc-btn-secondary);
+      }
+      .dc-btn.style-success {
+        background: var(--dc-btn-success);
+      }
+      .dc-btn.style-danger {
+        background: var(--dc-btn-danger);
+      }
+      .dc-btn.style-link {
+        background: var(--dc-btn-secondary);
+      }
+      .dc-btn .link-arrow {
+        opacity: 0.75;
+        font-size: 0.75em;
+      }
+      .dc-select {
+        width: 100%;
+        max-width: 460px;
+        background: #383a40;
+        color: var(--discord-text);
+        border: 1px solid #1e1f22;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .dc-select .ph {
+        color: var(--discord-text-muted);
+      }
+
       .preview-hint {
         display: flex;
         align-items: center;
@@ -1006,7 +1385,6 @@
         padding: 0 4px;
       }
 
-      /* toast */
       .toast {
         position: fixed;
         bottom: 26px;
@@ -1038,9 +1416,6 @@
         background: var(--success);
       }
 
-      /* ==========================================
-   MOBILE
-========================================== */
       @media (max-width: 980px) {
         .editor-grid {
           grid-template-columns: 1fr;
@@ -1049,7 +1424,8 @@
           position: static;
           order: -1;
         }
-        .field-row {
+        .field-row,
+        .field-row.three {
           grid-template-columns: 1fr;
         }
         .topbar-inner {
@@ -1160,13 +1536,12 @@
           <h1>Build the message, watch it appear.</h1>
           <p>
             Compose a message the same way Lana Bot will post it — content,
-            embeds, and all. The preview on the right is exactly what lands in
-            Discord.
+            embeds, buttons and all. The preview on the right is exactly what
+            lands in Discord.
           </p>
         </div>
 
         <div class="editor-grid">
-          <!-- BUILDER -->
           <div class="builder-col">
             <div class="card panel">
               <div class="panel-head"><h2>Bot identity</h2></div>
@@ -1189,6 +1564,38 @@
                       placeholder="https://…"
                     />
                   </div>
+                </div>
+              </div>
+              <div class="field-group">
+                <div class="field-row">
+                  <div>
+                    <div class="field-label">Thread name</div>
+                    <input
+                      class="text-input"
+                      id="threadNameInput"
+                      placeholder="Only used when posting to a forum channel"
+                    />
+                  </div>
+                  <div>
+                    <div class="field-label">Allowed mentions</div>
+                    <select class="select-input" id="mentionsSelect">
+                      <option value="default">Default (mentions ping)</option>
+                      <option value="suppress">
+                        Suppress @everyone / @here / roles
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="field-group" style="margin-bottom: 0">
+                <div class="toggle-row">
+                  <label class="toggle-chip"
+                    ><input type="checkbox" id="ttsToggle" /> Send as TTS</label
+                  >
+                  <label class="toggle-chip"
+                    ><input type="checkbox" id="suppressEmbedsToggle" />
+                    Suppress embed previews on links</label
+                  >
                 </div>
               </div>
             </div>
@@ -1247,6 +1654,58 @@
             </div>
 
             <div class="card panel">
+              <div class="panel-head">
+                <h2>
+                  Components
+                  <span class="count-pill" id="componentCountPill"
+                    >0 / 5 rows</span
+                  >
+                </h2>
+              </div>
+              <div class="panel-sub">
+                Buttons and select menus, laid out under the message in rows.
+              </div>
+              <div class="info-banner">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 16v-4M12 8h.01" />
+                </svg>
+                <div>
+                  <b>Link buttons work out of the box</b> — a plain webhook can
+                  send them and clicking one just opens the URL. Buttons with a
+                  custom style and select menus (role menus, etc.) will render
+                  fine here, but need a bot listening for interactions to
+                  actually do anything when clicked — a webhook alone can't
+                  respond to a click.
+                </div>
+              </div>
+              <div class="component-list" id="componentList"></div>
+              <button class="dashed-btn add-embed-btn" id="addRowBtn">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Add action row
+              </button>
+            </div>
+
+            <div class="card panel">
               <div class="panel-head"><h2>Raw JSON</h2></div>
               <div class="panel-sub">
                 Copy the payload out, or paste one in to load it into the
@@ -1276,7 +1735,6 @@
             </div>
           </div>
 
-          <!-- PREVIEW -->
           <div class="preview-col">
             <div class="preview-frame">
               <div class="preview-toolbar">
@@ -1328,19 +1786,58 @@
       </div>
     </footer>
 
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-panel">
+        <div class="modal-head">
+          <h3 id="modalTitle">Edit component</h3>
+          <button class="modal-close" id="modalClose">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-foot">
+          <button class="secondary-btn" id="modalCancel">Cancel</button>
+          <button class="primary-btn" id="modalSave">Save</button>
+        </div>
+      </div>
+    </div>
+
     <div class="toast" id="toast"></div>
 
     <script>
       (function () {
-        const DEFAULT_COLOR = "#5865f2";
+        const DEFAULT_COLOR = "#a9765a";
         const MAX_EMBEDS = 10;
         const MAX_TOTAL_CHARS = 6000;
+        const MAX_ROWS = 5;
+        const BUTTON_STYLES = [
+          "primary",
+          "secondary",
+          "success",
+          "danger",
+          "link",
+        ];
 
         let state = {
           username: "",
           avatarUrl: "",
           content: "",
           embeds: [],
+          components: [],
+          threadName: "",
+          suppressMentions: false,
+          tts: false,
+          suppressEmbeds: false,
         };
 
         function newEmbed() {
@@ -1366,10 +1863,95 @@
           return { name: "", value: "", inline: true };
         }
 
-        // ---------- DOM refs ----------
+        const COMPONENT_TYPES = [
+          {
+            type: "button",
+            label: "Button",
+            hint: "Custom action — needs a bot",
+          },
+          { type: "link", label: "Link Button", hint: "Opens a URL" },
+          {
+            type: "select",
+            label: "Select Menu",
+            hint: "Text options — needs a bot",
+          },
+          {
+            type: "user_select",
+            label: "User Select Menu",
+            hint: "Needs a bot",
+          },
+          {
+            type: "role_select",
+            label: "Role Select Menu",
+            hint: "Needs a bot",
+          },
+          {
+            type: "mentionable_select",
+            label: "User & Role Select Menu",
+            hint: "Needs a bot",
+          },
+          {
+            type: "channel_select",
+            label: "Channel Select Menu",
+            hint: "Needs a bot",
+          },
+        ];
+        const SELECT_TYPES = [
+          "select",
+          "user_select",
+          "role_select",
+          "mentionable_select",
+          "channel_select",
+        ];
+        let idCounter = 1;
+        function genId(prefix) {
+          return `${prefix}_${(idCounter++).toString(36)}`;
+        }
+
+        function newOption() {
+          return {
+            emoji: "",
+            label: "",
+            description: "",
+            value: genId("opt"),
+            default: false,
+            collapsed: false,
+          };
+        }
+        function newComponentItem(type) {
+          if (type === "button" || type === "link") {
+            return {
+              type,
+              style: type === "link" ? "link" : "primary",
+              label: type === "link" ? "Visit link" : "Click me",
+              url: "",
+              emoji: "",
+              disabled: false,
+              customId: genId("btn"),
+            };
+          }
+          return {
+            type,
+            placeholder: "Make a selection",
+            customId: genId("select"),
+            disabled: false,
+            options: type === "select" ? [newOption()] : [],
+          };
+        }
+        function newActionRow() {
+          return { items: [] };
+        }
+        function rowHasSelect(row) {
+          return row.items.some((it) => SELECT_TYPES.includes(it.type));
+        }
+
         const el = (id) => document.getElementById(id);
         const usernameInput = el("usernameInput");
         const avatarInput = el("avatarInput");
+        const threadNameInput = el("threadNameInput");
+        const mentionsSelect = el("mentionsSelect");
+        const ttsToggle = el("ttsToggle");
+        const suppressEmbedsToggle = el("suppressEmbedsToggle");
         const contentInput = el("contentInput");
         const contentCount = el("contentCount");
         const embedList = el("embedList");
@@ -1377,6 +1959,9 @@
         const embedLimitFill = el("embedLimitFill");
         const embedLimitLabel = el("embedLimitLabel");
         const addEmbedBtn = el("addEmbedBtn");
+        const componentList = el("componentList");
+        const componentCountPill = el("componentCountPill");
+        const addRowBtn = el("addRowBtn");
         const previewBody = el("previewBody");
         const jsonArea = el("jsonArea");
         const webhookUrlInput = el("webhookUrl");
@@ -1386,8 +1971,16 @@
         const copyJsonBtn = el("copyJsonBtn");
         const loadJsonBtn = el("loadJsonBtn");
         const toastEl = el("toast");
+        const modalOverlay = el("modalOverlay");
+        const modalTitle = el("modalTitle");
+        const modalBody = el("modalBody");
+        const modalClose = el("modalClose");
+        const modalCancel = el("modalCancel");
+        const modalSave = el("modalSave");
 
-        // ---------- persistence (webhook URL only) ----------
+        let modalTarget = null;
+        let modalDraft = null;
+
         try {
           const saved = localStorage.getItem("lana_webhook_url");
           if (saved) {
@@ -1409,7 +2002,6 @@
           );
         }
 
-        // very small markdown pass: bold, italics, inline code, links — enough for a faithful preview
         function renderMarkdown(raw) {
           let s = escapeHtml(raw || "");
           s = s.replace(
@@ -1433,7 +2025,7 @@
         }
 
         function hexToInt(hex) {
-          if (!hex) return 0x5865f2;
+          if (!hex) return 0xa9765a;
           const h = hex.replace("#", "");
           return parseInt(h, 16) || 0;
         }
@@ -1446,13 +2038,11 @@
           return (name || "L").trim().charAt(0).toUpperCase() || "L";
         }
 
-        // ---------- BUILDER RENDER ----------
         function renderEmbedBlock(embed, idx) {
           const wrap = document.createElement("div");
           wrap.className =
             "embed-block" + (embed.collapsed ? " collapsed" : "");
 
-          const totalLen = embedCharCount(embed);
           wrap.innerHTML = `
       <div class="embed-block-head" data-role="toggle">
         <div class="embed-color-chip" style="background:${embed.color}"></div>
@@ -1614,7 +2204,6 @@
           tsToggle.innerHTML = `<input type="checkbox" data-role="timestamp" ${embed.timestamp ? "checked" : ""}> Show current timestamp`;
           body.appendChild(tsToggle);
 
-          // ---- events ----
           wrap
             .querySelector('[data-role="toggle"]')
             .addEventListener("click", (e) => {
@@ -1698,9 +2287,9 @@
           d.innerHTML = label;
           return d;
         }
-        function makeRow(children) {
+        function makeRow(children, extraClass) {
           const row = document.createElement("div");
-          row.className = "field-row";
+          row.className = "field-row" + (extraClass ? " " + extraClass : "");
           children.forEach((c) => row.appendChild(c));
           return row;
         }
@@ -1763,12 +2352,467 @@
                 ? " warn"
                 : "");
           embedLimitLabel.textContent = `${total} / ${MAX_TOTAL_CHARS}`;
+
+          renderComponents();
         }
 
-        // ---------- PREVIEW RENDER ----------
+        const TYPE_LABEL = {
+          button: "Button",
+          link: "Link Button",
+          select: "Select Menu",
+          user_select: "User Select Menu",
+          role_select: "Role Select Menu",
+          mentionable_select: "User & Role Select Menu",
+          channel_select: "Channel Select Menu",
+        };
+
+        function renderComponents() {
+          closeAddMenu();
+          componentList.innerHTML = "";
+          state.components.forEach((row, ri) =>
+            componentList.appendChild(renderComponentRow(row, ri)),
+          );
+          componentCountPill.textContent = `${state.components.length} / ${MAX_ROWS} rows`;
+          addRowBtn.disabled = state.components.length >= MAX_ROWS;
+        }
+
+        function renderComponentRow(row, ri) {
+          const wrap = document.createElement("div");
+          wrap.className = "component-row";
+
+          const summary = row.items.length
+            ? rowHasSelect(row)
+              ? TYPE_LABEL[row.items[0].type]
+              : `${row.items.length} button${row.items.length === 1 ? "" : "s"}`
+            : "empty";
+
+          wrap.innerHTML = `
+      <div class="component-row-head">
+        <div class="title">Row ${ri + 1} <span>— ${summary}</span></div>
+        <button class="embed-remove" data-role="removerow" title="Remove row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="component-row-body"></div>
+    `;
+          wrap
+            .querySelector('[data-role="removerow"]')
+            .addEventListener("click", () => {
+              state.components.splice(ri, 1);
+              renderComponents();
+              syncPartial();
+            });
+
+          const body = wrap.querySelector(".component-row-body");
+
+          if (!row.items.length) {
+            const hint = document.createElement("div");
+            hint.className = "row-empty-hint";
+            hint.textContent = "Nothing in this row yet —";
+            body.appendChild(hint);
+          }
+
+          row.items.forEach((item, ii) => {
+            const chip = document.createElement("div");
+            const isSelect = SELECT_TYPES.includes(item.type);
+            chip.className = isSelect
+              ? "component-chip style-menu"
+              : `component-chip style-${item.style}`;
+            const label = isSelect
+              ? item.placeholder || TYPE_LABEL[item.type]
+              : item.label || "Button";
+            chip.innerHTML = `<span>${escapeHtml(label)}${!isSelect && item.style === "link" ? " ↗" : ""}</span><span class="chip-remove" data-role="chipremove" data-ii="${ii}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>`;
+            chip.addEventListener("click", (e) => {
+              if (e.target.closest('[data-role="chipremove"]')) return;
+              openItemModal(ri, ii);
+            });
+            chip
+              .querySelector('[data-role="chipremove"]')
+              .addEventListener("click", (e) => {
+                e.stopPropagation();
+                row.items.splice(ii, 1);
+                renderComponents();
+                syncPartial();
+              });
+            body.appendChild(chip);
+          });
+
+          const addWrap = document.createElement("div");
+          addWrap.className = "add-component-wrap";
+          const full =
+            (rowHasSelect(row) && row.items.length > 0) ||
+            (!rowHasSelect(row) && row.items.length >= 5);
+          addWrap.innerHTML = `
+      <button class="add-component-btn" data-role="addcomponent" ${full ? "disabled" : ""}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add component
+      </button>
+    `;
+          if (!full) {
+            const trigger = addWrap.querySelector('[data-role="addcomponent"]');
+            trigger.addEventListener("click", (e) => {
+              e.stopPropagation();
+              toggleAddMenu(trigger, row);
+            });
+          }
+          body.appendChild(addWrap);
+
+          return wrap;
+        }
+
+        let openMenuEl = null;
+        let openMenuTrigger = null;
+        function closeAddMenu() {
+          if (openMenuEl) {
+            openMenuEl.remove();
+            openMenuEl = null;
+          }
+          if (openMenuTrigger) {
+            openMenuTrigger.classList.remove("active");
+            openMenuTrigger = null;
+          }
+          window.removeEventListener("scroll", positionOpenMenu, true);
+          window.removeEventListener("resize", positionOpenMenu);
+        }
+        function positionOpenMenu() {
+          if (!openMenuEl || !openMenuTrigger) return;
+          const r = openMenuTrigger.getBoundingClientRect();
+          const menuWidth = openMenuEl.offsetWidth || 230;
+          let left = r.left;
+          if (left + menuWidth > window.innerWidth - 12) {
+            left = Math.max(12, window.innerWidth - 12 - menuWidth);
+          }
+          let top = r.bottom + 8;
+          const menuHeight = openMenuEl.offsetHeight || 0;
+          if (top + menuHeight > window.innerHeight - 12) {
+            top = Math.max(12, r.top - 8 - menuHeight);
+          }
+          openMenuEl.style.left = `${left}px`;
+          openMenuEl.style.top = `${top}px`;
+        }
+        function toggleAddMenu(trigger, row) {
+          if (openMenuTrigger === trigger) {
+            closeAddMenu();
+            return;
+          }
+          closeAddMenu();
+          const hasButtons = row.items.length > 0 && !rowHasSelect(row);
+          const menu = document.createElement("div");
+          menu.className = "add-component-menu";
+          COMPONENT_TYPES.forEach((t) => {
+            const isButtonType = t.type === "button" || t.type === "link";
+            const disabled = hasButtons ? !isButtonType : false;
+            const item = document.createElement("div");
+            item.className =
+              "add-component-menu-item" + (disabled ? " disabled" : "");
+            item.innerHTML = `<span>${t.label}</span><span class="hint">${t.hint}</span>`;
+            if (!disabled) {
+              item.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const newItem = newComponentItem(t.type);
+                row.items.push(newItem);
+                closeAddMenu();
+                renderComponents();
+                syncPartial();
+                const ri = state.components.indexOf(row);
+                openItemModal(ri, row.items.length - 1);
+              });
+            }
+            menu.appendChild(item);
+          });
+          document.body.appendChild(menu);
+          openMenuEl = menu;
+          openMenuTrigger = trigger;
+          trigger.classList.add("active");
+          positionOpenMenu();
+          window.addEventListener("scroll", positionOpenMenu, true);
+          window.addEventListener("resize", positionOpenMenu);
+        }
+        document.addEventListener("click", (e) => {
+          if (
+            openMenuEl &&
+            !e.target.closest(".add-component-menu") &&
+            !e.target.closest(".add-component-wrap")
+          ) {
+            closeAddMenu();
+          }
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeAddMenu();
+        });
+
+        function openItemModal(ri, ii) {
+          closeAddMenu();
+          modalTarget = { ri, ii };
+          modalDraft = JSON.parse(
+            JSON.stringify(state.components[ri].items[ii]),
+          );
+          renderModal();
+          modalOverlay.classList.add("show");
+        }
+        function closeModal() {
+          modalOverlay.classList.remove("show");
+          modalTarget = null;
+          modalDraft = null;
+        }
+        modalClose.addEventListener("click", closeModal);
+        modalCancel.addEventListener("click", closeModal);
+        modalOverlay.addEventListener("click", (e) => {
+          if (e.target === modalOverlay) closeModal();
+        });
+        modalSave.addEventListener("click", () => {
+          if (!modalTarget) return;
+          state.components[modalTarget.ri].items[modalTarget.ii] = modalDraft;
+          renderComponents();
+          syncPartial();
+          closeModal();
+        });
+
+        function renderModal() {
+          const isSelect = SELECT_TYPES.includes(modalDraft.type);
+          modalTitle.textContent = isSelect
+            ? "Edit component"
+            : "Edit component";
+          modalBody.innerHTML = "";
+          if (isSelect) {
+            renderSelectModalBody();
+          } else {
+            renderButtonModalBody();
+          }
+        }
+
+        function modalField(label, value, onInput, opts) {
+          opts = opts || {};
+          const wrap = document.createElement("div");
+          const maxlen = opts.maxlen;
+          wrap.innerHTML = `
+      <div class="field-label"><span>${label}</span>${maxlen ? `<span class="char-count">${(value || "").length} / ${maxlen}</span>` : ""}</div>
+      <input class="text-input" placeholder="${opts.placeholder || ""}" value="${escapeHtml(value)}" ${maxlen ? `maxlength="${maxlen}"` : ""} ${opts.disabled ? "disabled" : ""}>
+    `;
+          const input = wrap.querySelector("input");
+          const count = wrap.querySelector(".char-count");
+          input.addEventListener("input", (e) => {
+            onInput(e.target.value);
+            if (count)
+              count.textContent = `${e.target.value.length} / ${maxlen}`;
+          });
+          return wrap;
+        }
+        function modalCheckbox(label, checked, onChange) {
+          const wrap = document.createElement("label");
+          wrap.className = "toggle-chip";
+          wrap.style.width = "fit-content";
+          wrap.innerHTML = `<input type="checkbox" ${checked ? "checked" : ""}> ${label}`;
+          wrap.querySelector("input").addEventListener("change", (e) => {
+            onChange(e.target.checked);
+          });
+          return wrap;
+        }
+
+        function renderButtonModalBody() {
+          const btn = modalDraft;
+          const isLink = btn.type === "link";
+
+          if (!isLink) {
+            const styleWrap = document.createElement("div");
+            styleWrap.innerHTML = `<div class="field-label"><span>Style</span></div>`;
+            const picker = document.createElement("div");
+            picker.className = "btn-style-picker";
+            picker.style.display = "flex";
+            picker.style.gap = "8px";
+            ["primary", "secondary", "success", "danger"].forEach((s) => {
+              const sw = document.createElement("div");
+              sw.className = `component-chip style-${s}`;
+              sw.style.cursor = "pointer";
+              sw.style.opacity = btn.style === s ? "1" : "0.55";
+              sw.style.outline =
+                btn.style === s ? "2px solid var(--text)" : "none";
+              sw.textContent = s[0].toUpperCase() + s.slice(1);
+              sw.addEventListener("click", () => {
+                btn.style = s;
+                renderModal();
+              });
+              picker.appendChild(sw);
+            });
+            styleWrap.appendChild(picker);
+            modalBody.appendChild(styleWrap);
+          }
+
+          modalBody.appendChild(
+            modalField("Label", btn.label, (v) => (btn.label = v), {
+              maxlen: 80,
+              placeholder: "Button text",
+            }),
+          );
+          modalBody.appendChild(
+            modalField("Emoji (optional)", btn.emoji, (v) => (btn.emoji = v), {
+              placeholder: "e.g. 🎉",
+            }),
+          );
+          if (isLink) {
+            modalBody.appendChild(
+              modalField("URL", btn.url, (v) => (btn.url = v), {
+                placeholder: "https://…",
+              }),
+            );
+          } else {
+            modalBody.appendChild(
+              modalField(
+                "Custom ID (for your bot to identify this button)",
+                btn.customId,
+                (v) => (btn.customId = v),
+              ),
+            );
+          }
+          modalBody.appendChild(
+            modalCheckbox("Disabled", btn.disabled, (v) => (btn.disabled = v)),
+          );
+
+          if (!isLink) {
+            const note = document.createElement("div");
+            note.className = "info-banner";
+            note.style.marginBottom = "0";
+            note.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div>This style needs a bot listening for interactions to respond to clicks — a webhook alone can't.</div>`;
+            modalBody.appendChild(note);
+          }
+        }
+
+        function renderSelectModalBody() {
+          const sel = modalDraft;
+          modalBody.appendChild(
+            modalField(
+              "Placeholder",
+              sel.placeholder,
+              (v) => (sel.placeholder = v),
+              { maxlen: 150, placeholder: "Make a selection" },
+            ),
+          );
+          modalBody.appendChild(
+            modalCheckbox("Disabled", sel.disabled, (v) => (sel.disabled = v)),
+          );
+          modalBody.appendChild(
+            modalField(
+              "Custom ID (for your bot to identify this menu)",
+              sel.customId,
+              (v) => (sel.customId = v),
+            ),
+          );
+
+          if (sel.type !== "select") {
+            const note = document.createElement("div");
+            note.className = "info-banner";
+            note.style.marginBottom = "0";
+            note.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div>Discord fills this menu's options in automatically (with your server's ${sel.type === "channel_select" ? "channels" : sel.type === "role_select" ? "roles" : "members and roles"}) — there's nothing else to configure here, but a bot still needs to be listening to handle the selection.</div>`;
+            modalBody.appendChild(note);
+            return;
+          }
+
+          const optHead = document.createElement("div");
+          optHead.className = "subsection-label";
+          optHead.innerHTML = `Options <span style="font-weight:600;color:var(--text-light);text-transform:none;letter-spacing:0">(${sel.options.length}/25)</span>`;
+          modalBody.appendChild(optHead);
+
+          sel.options.forEach((opt, oi) => {
+            modalBody.appendChild(renderOptionBlock(sel, opt, oi));
+          });
+
+          const addOptBtn = document.createElement("button");
+          addOptBtn.className = "dashed-btn";
+          addOptBtn.disabled = sel.options.length >= 25;
+          addOptBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Add option`;
+          addOptBtn.addEventListener("click", () => {
+            if (sel.options.length >= 25) return;
+            sel.options.push(newOption());
+            renderModal();
+          });
+          modalBody.appendChild(addOptBtn);
+        }
+
+        function renderOptionBlock(sel, opt, oi) {
+          const block = document.createElement("div");
+          block.className =
+            "option-block" + (opt.collapsed ? " collapsed" : "");
+          block.innerHTML = `
+      <div class="option-block-head" data-role="opttoggle">
+        <svg class="embed-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        <div class="title">${opt.label ? escapeHtml(opt.label) : `Option ${oi + 1}`}</div>
+        <button class="small-remove" data-role="optremove">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="option-block-body"></div>
+    `;
+          const obody = block.querySelector(".option-block-body");
+
+          const elRow = document.createElement("div");
+          elRow.className = "emoji-label-row";
+          const emojiField = modalField("Emoji", opt.emoji, (v) => {
+            opt.emoji = v;
+          });
+          const labelField = modalField(
+            "Label",
+            opt.label,
+            (v) => {
+              opt.label = v;
+              block.querySelector(".option-block-head .title").textContent =
+                v || `Option ${oi + 1}`;
+            },
+            { maxlen: 100, placeholder: "Option label" },
+          );
+          elRow.appendChild(emojiField);
+          elRow.appendChild(labelField);
+          obody.appendChild(elRow);
+
+          obody.appendChild(
+            modalField(
+              "Description (optional)",
+              opt.description,
+              (v) => (opt.description = v),
+              { maxlen: 100 },
+            ),
+          );
+
+          const valueDefaultRow = document.createElement("div");
+          valueDefaultRow.className = "default-check-row";
+          const valueField = modalField(
+            "Value (hidden)",
+            opt.value,
+            (v) => (opt.value = v),
+            { maxlen: 100 },
+          );
+          valueField.style.flex = "1";
+          const defaultCheck = modalCheckbox(
+            "Default",
+            opt.default,
+            (v) => (opt.default = v),
+          );
+          defaultCheck.style.flexShrink = "0";
+          valueDefaultRow.appendChild(valueField);
+          valueDefaultRow.appendChild(defaultCheck);
+          obody.appendChild(valueDefaultRow);
+
+          block
+            .querySelector('[data-role="opttoggle"]')
+            .addEventListener("click", (e) => {
+              if (e.target.closest('[data-role="optremove"]')) return;
+              opt.collapsed = !opt.collapsed;
+              renderModal();
+            });
+          block
+            .querySelector('[data-role="optremove"]')
+            .addEventListener("click", (e) => {
+              e.stopPropagation();
+              sel.options.splice(oi, 1);
+              renderModal();
+            });
+
+          return block;
+        }
+
         function renderPreview() {
           const hasContent = state.content && state.content.trim().length > 0;
           const hasEmbeds = state.embeds.length > 0;
+          const hasComponents = state.components.length > 0;
           const displayName = state.username.trim() || "Lana Bot";
 
           let avatarStyle = "";
@@ -1787,12 +2831,16 @@
 
           if (hasContent) {
             html += `<div class="dc-content">${renderMarkdown(state.content)}</div>`;
-          } else if (!hasEmbeds) {
+          } else if (!hasEmbeds && !hasComponents) {
             html += `<div class="dc-empty">Nothing to preview yet — start typing on the left.</div>`;
           }
 
           state.embeds.forEach((embed) => {
             html += renderEmbedPreview(embed);
+          });
+
+          state.components.forEach((row) => {
+            html += renderComponentPreview(row);
           });
 
           html += `</div></div>`;
@@ -1859,6 +2907,23 @@
           return `<div class="dc-embed">${inner}</div>`;
         }
 
+        function renderComponentPreview(row) {
+          if (!row.items.length) return "";
+          if (rowHasSelect(row)) {
+            const sel = row.items[0];
+            const label = sel.placeholder || "Make a selection";
+            return `<div class="dc-select${sel.disabled ? "" : ""}"><span class="ph">${escapeHtml(label)}</span><span>▾</span></div>`;
+          }
+          const real = row.items.filter((b) => b.label);
+          if (!real.length) return "";
+          let html = `<div class="dc-action-row">`;
+          real.forEach((b) => {
+            html += `<span class="dc-btn style-${b.style}">${escapeHtml(b.label || "Button")}${b.style === "link" ? '<span class="link-arrow">↗</span>' : ""}</span>`;
+          });
+          html += `</div>`;
+          return html;
+        }
+
         function nowTime() {
           const d = new Date();
           let h = d.getHours();
@@ -1875,13 +2940,18 @@
           });
         }
 
-        // ---------- PAYLOAD ----------
         function buildPayload() {
           const payload = {};
           if (state.username.trim()) payload.username = state.username.trim();
           if (state.avatarUrl.trim())
             payload.avatar_url = state.avatarUrl.trim();
           if (state.content.trim()) payload.content = state.content;
+          if (state.tts) payload.tts = true;
+          if (state.threadName.trim())
+            payload.thread_name = state.threadName.trim();
+          if (state.suppressMentions) payload.allowed_mentions = { parse: [] };
+          if (state.suppressEmbeds) payload.flags = 4;
+
           if (state.embeds.length) {
             payload.embeds = state.embeds.map((e) => {
               const emb = {};
@@ -1913,6 +2983,68 @@
               return emb;
             });
           }
+
+          const nonEmptyRows = state.components.filter((r) => r.items.length);
+          if (nonEmptyRows.length) {
+            const styleMap = {
+              primary: 1,
+              secondary: 2,
+              success: 3,
+              danger: 4,
+              link: 5,
+            };
+            const selectTypeMap = {
+              select: 3,
+              user_select: 5,
+              role_select: 6,
+              mentionable_select: 7,
+              channel_select: 8,
+            };
+            payload.components = nonEmptyRows.map((row) => {
+              if (rowHasSelect(row)) {
+                const sel = row.items[0];
+                const c = {
+                  type: selectTypeMap[sel.type] || 3,
+                  custom_id: sel.customId || "select_menu",
+                  placeholder: sel.placeholder || undefined,
+                  disabled: sel.disabled || undefined,
+                };
+                if (sel.type === "select") {
+                  c.options = sel.options
+                    .filter((o) => o.label)
+                    .map((o) => ({
+                      label: o.label,
+                      value: o.value || o.label,
+                      description: o.description || undefined,
+                      default: o.default || undefined,
+                      emoji: o.emoji ? { name: o.emoji } : undefined,
+                    }));
+                }
+                return { type: 1, components: [c] };
+              }
+              return {
+                type: 1,
+                components: row.items
+                  .filter((b) => b.label)
+                  .map((b) => {
+                    const c = {
+                      type: 2,
+                      style: styleMap[b.style] || 5,
+                      label: b.label,
+                      disabled: b.disabled || undefined,
+                      emoji: b.emoji ? { name: b.emoji } : undefined,
+                    };
+                    if (b.style === "link") {
+                      c.url = b.url || "https://example.com";
+                    } else {
+                      c.custom_id = b.customId || genId("btn");
+                    }
+                    return c;
+                  }),
+              };
+            });
+          }
+
           return payload;
         }
 
@@ -1920,7 +3052,6 @@
           jsonArea.value = JSON.stringify(buildPayload(), null, 2);
         }
 
-        // ---------- WIRING ----------
         function syncPartial() {
           renderPreview();
           syncJsonArea();
@@ -1941,6 +3072,22 @@
           state.avatarUrl = e.target.value;
           syncPartial();
         });
+        threadNameInput.addEventListener("input", (e) => {
+          state.threadName = e.target.value;
+          syncPartial();
+        });
+        mentionsSelect.addEventListener("change", (e) => {
+          state.suppressMentions = e.target.value === "suppress";
+          syncPartial();
+        });
+        ttsToggle.addEventListener("change", (e) => {
+          state.tts = e.target.checked;
+          syncPartial();
+        });
+        suppressEmbedsToggle.addEventListener("change", (e) => {
+          state.suppressEmbeds = e.target.checked;
+          syncPartial();
+        });
         contentInput.addEventListener("input", (e) => {
           state.content = e.target.value;
           contentCount.textContent = `${e.target.value.length} / 2000`;
@@ -1954,13 +3101,33 @@
           state.embeds.push(newEmbed());
           renderAll();
         });
+        addRowBtn.addEventListener("click", () => {
+          if (state.components.length >= MAX_ROWS) return;
+          state.components.push(newActionRow());
+          renderComponents();
+          syncPartial();
+        });
 
         clearBtn.addEventListener("click", () => {
           if (!confirm("Clear the whole message? This can't be undone."))
             return;
-          state = { username: "", avatarUrl: "", content: "", embeds: [] };
+          state = {
+            username: "",
+            avatarUrl: "",
+            content: "",
+            embeds: [],
+            components: [],
+            threadName: "",
+            suppressMentions: false,
+            tts: false,
+            suppressEmbeds: false,
+          };
           usernameInput.value = "";
           avatarInput.value = "";
+          threadNameInput.value = "";
+          mentionsSelect.value = "default";
+          ttsToggle.checked = false;
+          suppressEmbedsToggle.checked = false;
           contentInput.value = "";
           contentCount.textContent = "0 / 2000";
           renderAll();
@@ -1985,6 +3152,14 @@
             state.username = parsed.username || "";
             state.avatarUrl = parsed.avatar_url || "";
             state.content = parsed.content || "";
+            state.tts = !!parsed.tts;
+            state.threadName = parsed.thread_name || "";
+            state.suppressMentions = !!(
+              parsed.allowed_mentions &&
+              Array.isArray(parsed.allowed_mentions.parse) &&
+              parsed.allowed_mentions.parse.length === 0
+            );
+            state.suppressEmbeds = !!(parsed.flags && parsed.flags & 4);
             state.embeds = (parsed.embeds || []).map((e) => ({
               color: intToHex(e.color),
               authorName: e.author?.name || "",
@@ -2005,8 +3180,66 @@
               timestamp: !!e.timestamp,
               collapsed: false,
             }));
+            const styleFromNum = {
+              1: "primary",
+              2: "secondary",
+              3: "success",
+              4: "danger",
+              5: "link",
+            };
+            const selectTypeFromNum = {
+              3: "select",
+              5: "user_select",
+              6: "role_select",
+              7: "mentionable_select",
+              8: "channel_select",
+            };
+            state.components = (parsed.components || []).map((row) => {
+              const comps = row.components || [];
+              const first = comps[0];
+              if (first && selectTypeFromNum[first.type]) {
+                return {
+                  items: [
+                    {
+                      type: selectTypeFromNum[first.type],
+                      placeholder: first.placeholder || "Make a selection",
+                      customId: first.custom_id || genId("select"),
+                      disabled: !!first.disabled,
+                      options: (first.options || []).map((o) => ({
+                        label: o.label || "",
+                        value: o.value || genId("opt"),
+                        description: o.description || "",
+                        emoji: (o.emoji && o.emoji.name) || "",
+                        default: !!o.default,
+                        collapsed: true,
+                      })),
+                    },
+                  ],
+                };
+              }
+              return {
+                items: comps
+                  .filter((b) => b.type === 2)
+                  .map((b) => ({
+                    type: b.style === 5 ? "link" : "button",
+                    style: styleFromNum[b.style] || "link",
+                    label: b.label || "",
+                    url: b.url || "",
+                    emoji: (b.emoji && b.emoji.name) || "",
+                    disabled: !!b.disabled,
+                    customId: b.custom_id || genId("btn"),
+                  })),
+              };
+            });
+
             usernameInput.value = state.username;
             avatarInput.value = state.avatarUrl;
+            threadNameInput.value = state.threadName;
+            mentionsSelect.value = state.suppressMentions
+              ? "suppress"
+              : "default";
+            ttsToggle.checked = state.tts;
+            suppressEmbedsToggle.checked = state.suppressEmbeds;
             contentInput.value = state.content;
             contentCount.textContent = `${state.content.length} / 2000`;
             renderAll();
@@ -2016,7 +3249,6 @@
           }
         });
 
-        // webhook URL validation + persistence
         function validateWebhookUrl(url) {
           return /^https:\/\/(discord|discordapp)\.com\/api\/webhooks\/\d+\/[\w-]+\/?$/.test(
             url.trim(),
@@ -2035,7 +3267,8 @@
                 e.thumbnailUrl ||
                 e.authorName ||
                 e.footerText,
-            );
+            ) ||
+            state.components.some((row) => row.items.length > 0);
           sendBtn.disabled = !(url && validateWebhookUrl(url) && hasBody);
         }
         webhookUrlInput.addEventListener("input", () => {
@@ -2063,10 +3296,21 @@
             return;
           }
           const payload = buildPayload();
-          if (!payload.content && !payload.embeds) {
-            showToast("Add a message or an embed before sending", "error");
+          if (!payload.content && !payload.embeds && !payload.components) {
+            showToast(
+              "Add a message, embed, or component before sending",
+              "error",
+            );
             return;
           }
+
+          const hasNonLinkComponent =
+            payload.components &&
+            payload.components.some((row) =>
+              row.components.some(
+                (c) => c.type !== 2 || (c.type === 2 && c.style !== 5),
+              ),
+            );
 
           sendBtn.classList.add("loading");
           sendBtn.disabled = true;
@@ -2077,7 +3321,12 @@
               body: JSON.stringify(payload),
             });
             if (res.ok || res.status === 204) {
-              showToast("Message sent", "success");
+              showToast(
+                hasNonLinkComponent
+                  ? "Sent — non-link components need a bot to respond to clicks"
+                  : "Message sent",
+                "success",
+              );
             } else {
               const text = await res.text().catch(() => "");
               showToast(`Discord rejected it (${res.status})`, "error");
@@ -2103,7 +3352,6 @@
           }, 3200);
         }
 
-        // init
         if (webhookUrlInput.value.trim()) {
           webhookUrlInput.dispatchEvent(new Event("input"));
         }
